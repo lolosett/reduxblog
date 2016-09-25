@@ -7,6 +7,7 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
+  externals: ['axios'],
   module: {
     loaders: [{
       exclude: /node_modules/,
