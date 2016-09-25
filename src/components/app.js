@@ -5,7 +5,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
+        React Simple Starter
+        {this.props.children}
       </div>
     );
   }
