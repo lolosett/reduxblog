@@ -14,24 +14,26 @@ class PostsShow extends Component {
   }
 
   onDeleteClick() {
+    //delete post action on specific post
      this.props.deletePost(this.props.params.id)
      .then(() => {
+       //on success, navigate to root page
        this.context.router.push('/');
      });
    }
 
   render(){
-    const {post} = this.props;
+    const { post } = this.props;
     if(!post) {
       return <div>Loading ...</div>;
     }
     return(
       <div>
         <Link to='/'>Back to Index</Link>
-        <button className="btn btn-danger pull-xs-right" onClick={this.onDeleteClick.bind(this)}>Delete Post</button>
-        <h3>{post.title}</h3>
-        <h6>Categories: {post.categories}</h6>
-        <p>{post.content}</p>
+          <button className="btn btn-danger pull-xs-right" onClick={this.onDeleteClick.bind(this)}>Delete Post</button>
+            <h3>{post.title}</h3>
+              <h6>Categories: {post.categories}</h6>
+                <p>{post.content}</p>
         <Link className="btn btn-primary" to="/"> Back </Link>
       </div>
     )
@@ -42,4 +44,4 @@ function mapStateToProps(state){
   return {post: state.posts.post}
 }
 
-export default connect(mapStateToProps, { fetchPost })(PostsShow);
+export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);
