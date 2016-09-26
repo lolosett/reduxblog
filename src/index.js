@@ -7,6 +7,7 @@ import {Router, browserHistory} from 'react-router';
 import reducers from './reducers';
 import Routes from './routes'
 
+
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
